@@ -2,7 +2,7 @@
 
 ## Summary
 
-DataBanks is a lightweight library inspired by Active Record that facilitates the creation and use of objects that represent data with persistent storage.
+DataBanks is a lightweight library that facilitates the creation and use of objects that represent data with persistent storage.
 
 This functionality exhibits Object Relational Mapping (ORM) and allows for an object-oriented approach to performing database operations.
 
