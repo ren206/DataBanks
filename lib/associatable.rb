@@ -66,11 +66,11 @@ module Associatable
       through_fk_value = through_options.foreign_key
 
       source_table_name = source_options.table_name
-      source_pk_value = source_options.primary_key
-      source_fk_value = source_options.foreign_key
+      source_pk = source_options.primary_key
+      source_fk = source_options.foreign_key
 
-      through_key_value = self.send(through_fk_value)
-      results = DBConnection.execute(<<-SQL, through_key_value)
+      through_fk_value = self.send(through_fk_value)
+      results = DBConnection.execute(<<-SQL, through_fk_value)
        SELECT
          #{source_table_name}.*
        FROM
@@ -78,7 +78,7 @@ module Associatable
        JOIN
          #{source_table_name}
        ON
-         #{through_table_name}.#{source_fk_value} = #{source_table_name}.#{source_pk_value}
+         #{through_table_name}.#{source_fk} = #{source_table_name}.#{source_pk}
        WHERE
          #{through_table_name}.#{through_pk_value} = ?
      SQL
