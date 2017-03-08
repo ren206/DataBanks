@@ -9,7 +9,7 @@ This functionality exhibits Object Relational Mapping (ORM) and allows for an ob
 ##Demo
 
 1. Clone the repo
-2. `cd` into the directory
+2. `cd` into the directoryå
 
 ## API
 
@@ -18,6 +18,7 @@ SQLObject provides similar core ActiveRecord associations:
 - `has_many`
 - `belongs_to`
 - `has_one_through`
+
 SQLObject provides similar core ActiveRecord methods:
 
 ## Libraries
