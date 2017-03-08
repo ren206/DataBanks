@@ -18,7 +18,6 @@ SQLObject provides similar core ActiveRecord associations:
 - `has_many`
 - `belongs_to`
 - `has_one_through`
-
 SQLObject provides similar core ActiveRecord methods:
 
 ## Libraries
