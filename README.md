@@ -6,20 +6,19 @@ DataBanks is a lightweight library that facilitates the creation and use of obje
 
 This functionality exhibits Object Relational Mapping (ORM) and allows for an object-oriented approach to performing database operations.
 
-##Demo
-
-1. Clone the repo
-2. `cd` into the directory
-
 ## API
+
+SQLObject provides similar core ActiveRecord methods:
+
+- `all`
+- `find`
+- `save`
 
 SQLObject provides similar core ActiveRecord associations:
 
 - `has_many`
 - `belongs_to`
 - `has_one_through`
-
-SQLObject provides similar core ActiveRecord methods:
 
 ## Libraries
 
