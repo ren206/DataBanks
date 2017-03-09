@@ -88,6 +88,6 @@ module Associatable
   end
 end
 
-class SQLObject
+class DataBanks
   extend Associatable
 end

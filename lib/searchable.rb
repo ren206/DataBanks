@@ -1,5 +1,5 @@
 require_relative 'db_connection'
-require_relative 'sql_object'
+require_relative 'data_banks'
 
 module Searchable
   def where(params)
@@ -17,6 +17,6 @@ module Searchable
   end
 end
 
-class SQLObject
+class DataBanks
   extend Searchable
 end

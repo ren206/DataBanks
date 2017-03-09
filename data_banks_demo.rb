@@ -1,4 +1,4 @@
-require_relative 'lib/sql_object'
+require_relative 'lib/data_banks'
 
 DEMO_DB_FILE = 'books.db'
 DEMO_SQL_FILE = 'books.sql'
@@ -16,22 +16,22 @@ DEMO_SQL_FILE = 'books.sql'
 DBConnection.open(DEMO_DB_FILE)
 
 # can pass in explicit options in associations
-class Book < SQLObject
+class Book < DataBanks
   belongs_to :author, foreign_key: :author_id
   has_one_through :primary_language, :author, :primary_language
 
   finalize!
 end
 
-# can omit options in associations, SQLObject provides conventional defaults
-class Author < SQLObject
+# can omit options in associations, DataBanks provides conventional defaults
+class Author < DataBanks
   belongs_to :primary_language
   has_many :books
 
   finalize!
 end
 
-class PrimaryLanguage < SQLObject
+class PrimaryLanguage < DataBanks
   has_many :authors, class_name: "Author", foreign_key: :primary_language_id
 
   finalize!
