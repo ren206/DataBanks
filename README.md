@@ -10,9 +10,12 @@ This functionality exhibits Object Relational Mapping (ORM) and allows for an ob
 
 DataBanks provides similar core ActiveRecord methods:
 
-- `all`
-- `find`
-- `save`
+- `::all`
+  - generates an array of objects, one for each item in the table
+- `::find(id)`
+  - finds the datum in a table by an id and returns a new object with all of the associated data
+- `::where(params)`
+  - returns an array of objects for the data matching the given params
 
 DataBanks provides similar core ActiveRecord associations:
 
