@@ -1,4 +1,5 @@
 require_relative 'searchable'
+require_relative 'data_banks'
 require 'active_support/inflector'
 
 class AssocOptions
