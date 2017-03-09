@@ -9,7 +9,7 @@ This functionality exhibits Object Relational Mapping (ORM) and allows for an ob
 ##Demo
 
 1. Clone the repo
-2. `cd` into the directoryå
+2. `cd` into the directory
 
 ## API
 
