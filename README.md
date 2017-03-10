@@ -15,21 +15,21 @@ end
 
 DataBanks provides similar core ActiveRecord methods:
 
-- `::all` generates an array of objects, one for each item in the table
+- `::all` generates an array of objects containing attributes, one for each item in the table
 
 ```ruby
 Book.all
-=> [id: 1, title: "The Hobbit", author_id: 1,
-    id: 2, title: "Metamorphosis", author_id: 2,
-    id: 3, title: "Candide", author_id: 3,
-    id: 4, title: "Don Quixote", author_id: 4,
-    id: 5, title: "Unclaimed Book", author_id: nil
+=> [
+    {id: 1, title: "The Hobbit", author_id: 1},
+    {id: 2, title: "Metamorphosis", author_id: 2},
+    {id: 3, title: "Candide", author_id: 3},
+    {id: 4, title: "Don Quixote", author_id: 4},
+    {id: 5, title: "Unclaimed Book", author_id: nil}
    ]
 ```
 - `::find(id)` finds the datum in a table by an id and returns a new object with all of the associated data
 ```ruby
 book = Book.find(5)
-=> 
 ```
 which you can then update using the update method:
 ```ruby
@@ -41,7 +41,7 @@ book.author_id
 ```ruby
 Book.where(author_id: 2)
 => [
-    <Book:#{object_id} id: 2, title: "Metamorphosis", author_id: 2>
+    {id: 2, title: "Metamorphosis", author_id: 2}
     ]
 ```
 DataBanks provides similar core ActiveRecord associations:
@@ -51,14 +51,14 @@ DataBanks provides similar core ActiveRecord associations:
   class Book < DataBanks
     belongs_to :author
   end
-  
+
   class Author < DataBanks
     has_many :books
   end
- 
+
   author = Author.find(1)
-  author.books = [ 
-    <Book:#{object_id} id: 1, title: "The Hobbit", author_id: 1>
+  author.books = [
+    {id: 1, title: "The Hobbit", author_id: 1}
     ]
   ```
 - `belongs_to`
@@ -66,33 +66,33 @@ DataBanks provides similar core ActiveRecord associations:
   class Author < DataBanks
     belongs_to :primary_language
   end
-  
+
   class PrimaryLanguage <DataBanks
     has_many :authors
   end
-  
+
   author = Author.find(3)
   author.primary_language
-  => <PrimaryLanguage:#{object_id} id: 3, name: "French">
+  => {id: 3, name: "French"}
   ```
 - `has_one_through`
   ```ruby
   class Book < DataBanks
     belongs_to :author
   end
-  
+
   class Author < DataBanks
     has_many :books
     belongs_to :primary_language
   end
-  
+
   class PrimaryLanguage < DataBanks
     has_many :authors
   end
-  
+
   book = Book.find(4)
   book.primary_language
-  => <PrimaryLanguage:#{object_id} id: 4, name: "Spanish">
+  => {id: 4, name: "Spanish"}
   ```
 
  **Note: While DataBanks allows users to provide their own names for associations, it is recommended to use the default one in most cases**
