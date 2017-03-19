@@ -6,6 +6,42 @@ DataBanks is a lightweight library that facilitates the creation and use of obje
 
 This functionality exhibits Object Relational Mapping (ORM) and allows for an object-oriented approach to performing database operations. When extended into a new class, DataBanks sets up a relational mapping between the new model and an existing table in the database.
 
+## Demo
+
+Instructions for using DataBanks:
+
+1. Clone / download the repository
+2. `cd` into the directory
+3. If you'd like to use the demo database, follow 4-7; if you'd like to use your own database, follow 8-15
+4. `sqlite3 books.db < books.sql`
+5. `sqlite3 books.db`
+6. Run `irb` or `pry`
+7. `load 'data_banks_demo.rb'`
+
+8. Create your own tables in SQLite3 like so:
+```SQL
+CREATE TABLE patients (
+  id INTEGER PRIMARY KEY,
+  fname VARCHAR(255) NOT NULL,
+  lname VARCHAR(255) NOT NULL,
+  condition VARCHAR(255) NOT NULL,
+  FOREIGN KEY(doctor_id) REFERENCES doctor(id)
+)
+```
+9. `sqlite3 your_database.db < #{FILE_NAME}.sql`
+10. `sqlite3 your_database.db`
+11. Run `irb` or `pry`
+12. `load 'lib/data_banks.rb`
+13. `DBConnection.open(DEMO_DB_FILE)`
+14. Create classes like so:
+```ruby
+class Patient < DataBanks
+    belongs_to :doctor
+    finalize!
+end
+```
+15. Use the API below
+
 ## API
 
 ```ruby
