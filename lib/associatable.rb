@@ -14,7 +14,7 @@ class AssocOptions
   end
 
   def table_name
-    class_name == "Human" ? "humans" : class_name.underscore.tableize
+    self.class_name.downcase + "s"
   end
 end
 
