@@ -1,6 +1,7 @@
 CREATE TABLE books (
   id INTEGER PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
+  author_id INTEGER,
 
   FOREIGN KEY(author_id) REFERENCES author(id)
 );
